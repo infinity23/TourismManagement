@@ -1,6 +1,7 @@
 # TourismManagement
 
 农家乐管理平台
+
 	•	项目架构：	
 			基于Java Web的B/S架构	
 			采用SpringMVC与MyBatis框架	
