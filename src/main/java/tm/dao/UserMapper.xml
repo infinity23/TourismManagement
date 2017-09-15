@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tm.dao.UserDao">
+    <!--<cache type="redis.config.RedisCache"/>-->
+    <insert id="add" parameterType="user" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO users(username, password, description) VALUES (#{username}, #{password}, #{description});
+    </insert>
+    <delete id="delete" parameterType="int">
+        DELETE FROM users WHERE id = #{id};
+    </delete>
+    <update id="update" parameterType="user">
+        UPDATE users SET
+            username = #{username},
+            password = #{password},
+            description = #{description}
+        WHERE id = #{id};
+    </update>
+    <select id="findByName" parameterType="string" resultType="user">
+        SELECT * FROM users WHERE username = #{username};
+    </select>
+    <select id="findById" parameterType="int" resultType="user">
+        SELECT * FROM users WHERE id = #{id};
+    </select>
+    <resultMap id="userMap" type="user">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="description" column="description"/>
+    </resultMap>
+    <select id="listAll" resultMap="userMap">
+        SELECT * FROM users;
+    </select>
+    <select id="listPage" resultMap="userMap">
+        SELECT * FROM users;
+    </select>
+</mapper>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tm.dao.TouristDao">
+    <!--<cache type="redis.config.RedisCache"/>-->
+    <resultMap id="touristMap" type="tourist">
+        <id property="id" column="id"/>
+        <result property="touristName" column="tourist_name"/>
+        <result property="gender" column="gender"/>
+        <result property="age" column="age"/>
+        <result property="phone" column="phone"/>
+    </resultMap>
+    <select id="listAll" resultMap="touristMap">
+        select * from tourist
+    </select>
+    <select id="listPage" resultMap="touristMap">
+        select * from tourist
+    </select>
+    <select id="findByName" parameterType="string" resultType="tourist">
+        select * from tourist where tourist_name = #{touristName}
+    </select>
+    <select id="findById" parameterType="string" resultType="tourist">
+        select * from tourist where id = #{id}
+    </select>
+    <insert id="add" parameterType="tourist" useGeneratedKeys="true" keyProperty="id">
+            insert into tourist(tourist_name,gender,age,address,phone,company,idcard,info,pic) values
+            (#{touristName},#{gender},#{age},#{address},#{phone},#{company},#{idcard},#{info},#{pic})
+    </insert>
+    <update id="update" parameterType="int">
+           update tourist set
+           tourist_name = #{touristName},
+           gender = #{gender},
+           age = #{age},
+           address = #{address},
+           phone = #{phone},
+           company = #{company},
+           idcard = #{idcard},
+           info = #{info},
+           pic = #{pic}
+           where id = #{id}
+    </update>
+    <delete id="delete" parameterType="int">
+        delete from tourist where id = #{id}
+    </delete>
+</mapper>

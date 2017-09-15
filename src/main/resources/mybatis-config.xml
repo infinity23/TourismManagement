@@ -1,0 +1,38 @@
+<!--
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    &lt;!&ndash;别名管理&ndash;&gt;
+    <typeAliases>
+        <typeAlias alias="hotel" type="tm.pojo.Hotel"/>
+        <typeAlias alias="tourist" type="tm.pojo.Tourist"/>
+        <typeAlias alias="info" type="tm.pojo.Info"/>
+        <typeAlias alias="hotelAccount" type="tm.pojo.HotelAccount"/>
+    </typeAliases>
+    &lt;!&ndash; 对事务的管理和连接池的配置 &ndash;&gt;
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://localhost:3306/tourism" />
+                <property name="username" value="root" />
+                <property name="password" value="root" />
+            </dataSource>
+        </environment>
+    </environments>
+
+    &lt;!&ndash; mapping 文件路径配置 &ndash;&gt;
+    <mappers>
+        <mapper resource="mappers/HotelMapper.xml" />
+        <mapper resource="mappers/TouristMapper.xml" />
+        <mapper resource="mappers/InfoMapper.xml" />
+        <mapper resource="mappers/HotelAccountMapper.xml" />
+    </mappers>
+</configuration>-->

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tm.dao.HotelDao">
+    <!--<cache type="redis.config.RedisCache"/>-->
+    <resultMap id="hotelMap" type="hotel">
+        <id property="id" column="id"/>
+        <result property="hotelName" column="hotel_name"/>
+        <result property="phone" column="phone"/>
+        <result property="address" column="address"/>
+        <result property="hostName" column="host_name"/>
+    </resultMap>
+    <select id="listPage" resultMap="hotelMap">
+        select * from hotel
+    </select>
+    <select id="listAll" resultMap="hotelMap">
+        SELECT * from hotel
+    </select>
+    <select id="findByName" parameterType="string" resultType="hotel">
+        select * from hotel where hotel_name = #{hotelName}
+    </select>
+    <select id="findById" parameterType="int" resultType="hotel">
+        select * from hotel where id = #{id}
+    </select>
+    <select id="findByUserId" parameterType="int" resultType="hotel">
+        select * from hotel where user_id = #{userId}
+    </select>
+    <insert id="add" parameterType="hotel" useGeneratedKeys="true" keyProperty="id">
+            insert into hotel(hotel_name,address,phone,host_name,idcard,info,pic) values
+            (#{hotelName},#{address},#{phone},#{hostName},#{idcard},#{info},#{pic})
+    </insert>
+    <insert id="registerHotel" parameterType="hotel" useGeneratedKeys="true" keyProperty="id">
+            insert into hotel(hotel_name,address,phone,host_name,idcard,info,pic,user_id) values
+            (#{hotelName},#{address},#{phone},#{hostName},#{idcard},#{info},#{pic},#{userId})
+    </insert>
+    <update id="update" parameterType="hotel">
+        update hotel set
+        hotel_name = #{hotelName},
+        address = #{address},
+        phone = #{phone},
+        host_name = #{hostName},
+        idcard = #{idcard},
+        info = #{info},
+        pic = #{pic}
+
+        where id = #{id}
+    </update>
+    <delete id="delete" parameterType="int">
+        delete from hotel where id = #{id}
+    </delete>
+</mapper>

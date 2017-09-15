@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tm.dao.InfoDao">
+    <insert id="add" parameterType="info">
+        insert into hotel_tourist values(#{hotelId},#{touristId},#{checkIn},#{number},#{duration},#{info})
+
+    </insert>
+
+    <resultMap id="infoMap" type="info">
+        <id property="hotelId" column="hotel_id"/>
+        <id property="touristId" column="tourist_id"/>
+        <result property="checkIn" column="check_in"/>
+        <result property="number" column="number"/>
+        <result property="duration" column="duration"/>
+        <result property="info" column="info"/>
+        <collection property="hotel" column="hotel_id" select="tm.dao.HotelDao.findById"/>
+        <collection property="tourist" column="tourist_id" select="tm.dao.TouristDao.findById"/>
+    </resultMap>
+    <select id="listAll" resultMap="infoMap">
+        select * from hotel_tourist
+    </select>
+    <select id="listPage" resultMap="infoMap">
+        select * from hotel_tourist
+    </select>
+    <select id="listPageByHotel" resultMap="infoMap">
+        select * from hotel_tourist where hotel_id = #{hotelId}
+    </select>
+    <select id="listAllByHotel"  parameterType="int" resultMap="infoMap">
+        select * from hotel_tourist where hotel_id = #{hotelId}
+    </select>
+
+</mapper>

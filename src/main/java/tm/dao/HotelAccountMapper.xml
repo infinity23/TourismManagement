@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tm.dao.HotelAccountDao">
+    <!--<cache type="redis.config.RedisCache"/>-->
+    <select id="findByName" parameterType="string" resultType="hotelAccount">
+        select * from hotel_account where username = #{name}
+    </select>
+    <insert id="add" parameterType="hotelAccount">
+        insert into hotel_account values
+        (#{hotelId},#{name},#{passwd})
+    </insert>
+    <update id="update" parameterType="hotelAccount">
+        update hotel_account set
+        username = #{name},
+        passwd = #{passwd},
+        where hotel_id = #{hotelid}
+    </update>
+    <delete id="delete" parameterType="int">
+        delete from hotel_account where hotel_id = #{hotelId}
+    </delete>
+</mapper>

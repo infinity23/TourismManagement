@@ -1,0 +1,74 @@
+
+#cont {
+
+    height: 400px;
+    width: 300px;
+    margin: 80px auto;
+    padding-top: 50px;
+
+    border: solid 1px;
+
+    background-color: #D5F8A0;
+}
+
+#fo {
+    width: 300px;
+    margin: auto;
+    border: solid 1px;
+}
+
+table.info {
+    margin: auto;
+    border: 1px;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.info td {
+    border: 1px;
+    padding:10px;
+    height: 35px;
+    width: auto;
+    text-align: left;
+}
+
+
+td.lable {
+    text-align: center;
+}
+
+.button input {
+    position: relative;
+    left: 100px;
+}
+
+#title{
+    margin:auto;
+    width: 100%;
+    border: 0;
+    text-align: center;
+    font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+}
+
+
+.bu {
+    height: 50px;
+    width: 200px;
+    border: solid 1px;
+    margin:50px;
+
+    background-color: orange;
+
+    text-align: center;
+    line-height: 50px;
+}
+
+.bu a{
+    text-decoration: none;
+}
+
+.reg {
+    width: 50px;
+    float: right;
+    margin-top: 10px;
+}

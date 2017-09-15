@@ -1,0 +1,12 @@
+<Context>
+    <Resource name="jdbc/tourism"
+              auth="Container"
+              type="javax.sql.DataSource"
+              driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/tourism"
+              username="root"
+              password="root"
+              maxTotal="50"
+              maxIdle="30"
+              maxWaitMillis="10000"/>
+</Context>

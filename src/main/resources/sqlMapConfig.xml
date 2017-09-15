@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--支持驼峰命名-->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+
+    <!--启用缓存-->
+        <setting name="cacheEnabled" value="true"/>
+
+    <!--强制生成的键被使用-->
+        <setting name="useGeneratedKeys" value="true"/>
+
+    <!--配置默认的执行器-->
+        <setting name="defaultExecutorType" value="REUSE"/>
+
+     <!--启用延迟加载-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+
+    <!--设置超时时间-->
+        <setting name="defaultStatementTimeout" value="25000"/>
+
+
+    </settings>
+
+    <!--别名管理-->
+    <typeAliases>
+        <typeAlias alias="hotel" type="tm.pojo.Hotel"/>
+        <typeAlias alias="tourist" type="tm.pojo.Tourist"/>
+        <typeAlias alias="info" type="tm.pojo.Info"/>
+        <typeAlias alias="hotelAccount" type="tm.pojo.HotelAccount"/>
+        <typeAlias alias="user" type="tm.pojo.User"/>
+        <typeAlias alias="role" type="tm.pojo.Role"/>
+        <typeAlias alias="authority" type="tm.pojo.Authority"/>
+        <typeAlias alias="userRole" type="tm.pojo.UserRole"/>
+    </typeAliases>
+
+    <!--分页插件-->
+    <plugins>
+        <plugin interceptor="mybatis.config.PagePlugin">
+            <property name="default.useFlag" value="true"/>
+        </plugin>
+    </plugins>
+    <!-- 对事务的管理和连接池的配置 -->
+    <!--<environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://localhost:3306/tourism" />
+                <property name="username" value="root" />
+                <property name="password" value="root" />
+            </dataSource>
+        </environment>
+    </environments>-->
+
+    <!-- mapping 文件路径配置 -->
+    <mappers>
+        <mapper resource="tm/dao/HotelMapper.xml" />
+        <mapper resource="tm/dao/TouristMapper.xml" />
+        <mapper resource="tm/dao/InfoMapper.xml" />
+        <mapper resource="tm/dao/HotelAccountMapper.xml" />
+        <mapper resource="tm/dao/UserMapper.xml" />
+        <mapper resource="tm/dao/UserRoleMapper.xml" />
+        <mapper resource="tm/dao/RoleMapper.xml" />
+        <!--<package name="tm.dao"/>-->
+    </mappers>
+
+
+</configuration>

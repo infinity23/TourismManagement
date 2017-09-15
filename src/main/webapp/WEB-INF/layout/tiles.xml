@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="base"
+                template="/WEB-INF/layout/page.jsp">
+        <put-attribute name="meta"
+                       value="/WEB-INF/layout/meta.jsp"/>
+        <put-attribute name="header"
+                       value="/WEB-INF/layout/header.jsp"/>
+        <put-attribute name="footer"
+                       value="/WEB-INF/layout/footer.jsp"/>
+    </definition>
+
+    <!--<definition name="pageNum">-->
+        <!--<put-attribute name="page"-->
+                       <!--value="/WEB-INF/layout/pageNum.jsp"/>-->
+    <!--</definition>-->
+
+    <definition name="withPage"
+                template="/WEB-INF/layout/withPage.jsp">
+        <put-attribute name="meta"
+                       value="/WEB-INF/layout/meta.jsp"/>
+        <put-attribute name="header"
+                       value="/WEB-INF/layout/header.jsp"/>
+        <put-attribute name="page"
+                       value="/WEB-INF/layout/pageNum.jsp"/>
+        <put-attribute name="footer"
+                       value="/WEB-INF/layout/footer.jsp"/>
+    </definition>
+
+    <definition name="hotelBase"
+                template="/WEB-INF/layout/hotelPage.jsp">
+        <put-attribute name="meta"
+                       value="/WEB-INF/layout/meta.jsp"/>
+        <put-attribute name="hotelHeader"
+                       value="/WEB-INF/layout/hotelHeader.jsp"/>
+        <put-attribute name="footer"
+                       value="/WEB-INF/layout/footer.jsp"/>
+    </definition>
+
+    <definition name="home" extends="base">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/home.jsp"/>
+    </definition>
+
+    <definition name="hotelHome" extends="hotelBase">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/hotelHome.jsp"/>
+    </definition>
+
+    <definition name="infoDetail" extends="base">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/infoDetail.jsp"/>
+    </definition>
+    <definition name="hotelRegister" extends="base">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/hotelRegister.jsp"/>
+    </definition>
+    <definition name="userHotelRegister" extends="hotelBase">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/userHotelRegister.jsp"/>
+    </definition>
+    <definition name="touristRegister" extends="base">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/touristRegister.jsp"/>
+    </definition>
+    <definition name="hotelRetrieval" extends="withPage">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/hotelRetrieval.jsp"/>
+    </definition>
+    <definition name="touristRetrieval" extends="withPage">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/touristRetrieval.jsp"/>
+    </definition>
+    <definition name="checkIn" extends="hotelBase">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/checkIn.jsp"/>
+    </definition>
+    <definition name="checkQuery" extends="hotelBase">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/checkQuery.jsp"/>
+        <put-attribute name="page"
+                       value="/WEB-INF/layout/pageNum.jsp"/>
+    </definition>
+    <definition name="infoRetrieval" extends="withPage">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/infoRetrieval.jsp"/>
+    </definition>
+    <definition name="hotelDetail" extends="base">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/hotelDetail.jsp"/>
+    </definition>
+    <definition name="hotelModify" extends="hotelBase">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/hotelModify.jsp"/>
+    </definition>
+    <definition name="commonRetrieval" extends="base">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/commonRetrieval.jsp"/>
+    </definition>
+    <definition name="maop" extends="base">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/map.jsp"/>
+    </definition>
+
+
+</tiles-definitions>

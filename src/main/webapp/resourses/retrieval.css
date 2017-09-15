@@ -1,0 +1,30 @@
+#cond{
+    float: left;
+    margin-left: 30px;
+    margin-top: 20px;
+
+    border: solid 1px;
+}
+
+#cond td{
+    padding: 5px;
+}
+
+table.info {
+    margin-top: 20px;
+    margin-left: 30%;
+    width: auto;
+    border: 1px solid;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.info td, th {
+    border: 1px solid;
+    text-align: center;
+    min-width: 100px;
+}
+
+span.error {
+    color: red;
+}

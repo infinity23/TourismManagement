@@ -1,0 +1,89 @@
+@CHARSET "UTF-8";
+
+#mid{
+    float: left;
+    margin-left: 50px;
+    margin-top: 20px;
+
+}
+
+table.info {
+    border: 1px;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.info td {
+    border: 1px;
+    padding:10px;
+    height: 35px;
+    width: auto;
+    text-align: left;
+}
+
+
+td.lable {
+    text-align: center;
+}
+
+.button input {
+    position: relative;
+    left: 100px;
+}
+
+#idpic {
+    width: 240px;
+    height: 150px;
+    float: left;
+    margin-left: 60px;
+    margin-top: 70px;
+    border: solid lightgrey 1px;
+    background: url("/resourses/image/idcard.jpg")  no-repeat center;
+    background-size: contain;
+
+}
+
+#idpic .title{
+    display:block;
+    width:100px;
+    height:10px;
+    position:relative;
+    top:-10px;
+    left:5px;
+    text-align: center;
+    background: white;
+
+    color: lightgrey;
+
+}
+
+#title{
+    margin:auto;
+    width: 100%;
+    border: 0;
+    text-align: center;
+    font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+}
+
+
+#pic{
+    width: 220px;
+    height: 320px;
+    float: left;
+    margin-left: 15%;
+    margin-top: 10px;
+    background: url("/resourses/image/hotel.jpg")  no-repeat center;
+    background-size: contain;
+}
+
+
+span.error {
+    margin-left: 10px;
+    font: italic 300 80% "errors";
+    color: red;
+}
+
+textarea {
+    height: 50px;
+    width: 160px;
+}

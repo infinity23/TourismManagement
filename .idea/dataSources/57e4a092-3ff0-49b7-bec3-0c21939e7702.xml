@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="tourism@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="tourism">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="education"/>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="performance_schema"/>
+    <schema id="7" parent="1" name="personmanager"/>
+    <schema id="8" parent="1" name="sakila"/>
+    <schema id="9" parent="1" name="sshe"/>
+    <schema id="10" parent="1" name="sys"/>
+    <schema id="11" parent="1" name="test"/>
+    <schema id="12" parent="1" name="tigergame"/>
+    <schema id="13" parent="1" name="world"/>
+    <schema id="14" parent="1" name="sync"/>
+    <table id="15" parent="2" name="authorities"/>
+    <table id="16" parent="2" name="hotel"/>
+    <table id="17" parent="2" name="hotel_tourist"/>
+    <table id="18" parent="2" name="role_authority"/>
+    <table id="19" parent="2" name="roles"/>
+    <table id="20" parent="2" name="tourist"/>
+    <table id="21" parent="2" name="user_role"/>
+    <table id="22" parent="2" name="users"/>
+    <column id="23" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="24" parent="15" name="authority">
+      <Position>2</Position>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="15" name="description">
+      <Position>3</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <index id="26" parent="15" name="authority">
+      <ColNames>authority</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="27" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="28" parent="15" name="authority">
+      <ColNames>authority</ColNames>
+      <UnderlyingIndexName>authority</UnderlyingIndexName>
+    </key>
+    <column id="29" parent="16" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="30" parent="16" name="hotel_name">
+      <Position>2</Position>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="16" name="address">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="32" parent="16" name="phone">
+      <Position>4</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="33" parent="16" name="host_name">
+      <Position>5</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="34" parent="16" name="idcard">
+      <Position>6</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="35" parent="16" name="info">
+      <Position>7</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="36" parent="16" name="pic">
+      <Position>8</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="37" parent="16" name="user_id">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="38" parent="16" name="user_id_FK1">
+      <ColNames>user_id</ColNames>
+    </index>
+    <key id="39" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="40" parent="16" name="user_id_FK1">
+      <ColNames>user_id</ColNames>
+      <RefSchemaName>tourism</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="41" parent="17" name="hotel_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="17" name="tourist_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="43" parent="17" name="check_in">
+      <Position>3</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="44" parent="17" name="number">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="45" parent="17" name="duration">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="46" parent="17" name="info">
+      <Position>6</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <index id="47" parent="17" name="tourist_id_FK">
+      <ColNames>tourist_id</ColNames>
+    </index>
+    <key id="48" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>hotel_id
+tourist_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="49" parent="17" name="hotel_id_FK">
+      <ColNames>hotel_id</ColNames>
+      <RefSchemaName>tourism</RefSchemaName>
+      <RefTableName>hotel</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="50" parent="17" name="tourist_id_FK">
+      <ColNames>tourist_id</ColNames>
+      <RefSchemaName>tourism</RefSchemaName>
+      <RefTableName>tourist</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="51" parent="18" name="role_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="52" parent="18" name="authority_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="53" parent="18" name="authority_id_FK">
+      <ColNames>authority_id</ColNames>
+    </index>
+    <key id="54" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>role_id
+authority_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="55" parent="18" name="role_id_FK">
+      <ColNames>role_id</ColNames>
+      <RefSchemaName>tourism</RefSchemaName>
+      <RefTableName>roles</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="56" parent="18" name="authority_id_FK">
+      <ColNames>authority_id</ColNames>
+      <RefSchemaName>tourism</RefSchemaName>
+      <RefTableName>authorities</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="57" parent="19" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="58" parent="19" name="role">
+      <Position>2</Position>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="59" parent="19" name="description">
+      <Position>3</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <index id="60" parent="19" name="role">
+      <ColNames>role</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="61" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="62" parent="19" name="role">
+      <ColNames>role</ColNames>
+      <UnderlyingIndexName>role</UnderlyingIndexName>
+    </key>
+    <column id="63" parent="20" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="64" parent="20" name="tourist_name">
+      <Position>2</Position>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="65" parent="20" name="gender">
+      <Position>3</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="66" parent="20" name="age">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="67" parent="20" name="address">
+      <Position>5</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="68" parent="20" name="phone">
+      <Position>6</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="69" parent="20" name="company">
+      <Position>7</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="70" parent="20" name="idcard">
+      <Position>8</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="71" parent="20" name="info">
+      <Position>9</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="72" parent="20" name="pic">
+      <Position>10</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <key id="73" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="74" parent="21" name="user_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="75" parent="21" name="role_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="76" parent="21" name="role_id_FK1">
+      <ColNames>role_id</ColNames>
+    </index>
+    <key id="77" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_id
+role_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="78" parent="21" name="user_id_FK">
+      <ColNames>user_id</ColNames>
+      <RefSchemaName>tourism</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="79" parent="21" name="role_id_FK1">
+      <ColNames>role_id</ColNames>
+      <RefSchemaName>tourism</RefSchemaName>
+      <RefTableName>roles</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="80" parent="22" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="81" parent="22" name="username">
+      <Position>2</Position>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="82" parent="22" name="password">
+      <Position>3</Position>
+      <DataType>varchar(200)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="83" parent="22" name="description">
+      <Position>4</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <index id="84" parent="22" name="username">
+      <ColNames>username</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="85" parent="22" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="86" parent="22" name="username">
+      <ColNames>username</ColNames>
+      <UnderlyingIndexName>username</UnderlyingIndexName>
+    </key>
+  </database-model>
+</dataSource>
